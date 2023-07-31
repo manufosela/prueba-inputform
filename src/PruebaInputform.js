@@ -35,8 +35,7 @@ export class PruebaInputform extends LitElement {
   render() {
     return html`
       <h2>${this.title} ${this.name}</h2>
-      <input type="text" name="name" id="name" placeholder="Nombre" .value="${this.name}" />
-      <button @click="${this.setName}">Set Name</button>
+      <input type="text" name="name" id="name" placeholder="Nombre" .value="${this.name}" @input=${(e) => { this.name = e.target.value }} />
       <button @click="${this.clearName}">Clear Name</button>
     `;
   }

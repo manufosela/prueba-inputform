@@ -32,10 +32,14 @@ export class PruebaInputform extends LitElement {
     this.name = '';
   }
 
+  firstUpdated() {
+    this.shadowRoot.querySelector('#name').addEventListener('change', this.setName.bind(this));
+  }
+
   render() {
     return html`
       <h2>${this.title} ${this.name}</h2>
-      <input type="text" name="name" id="name" placeholder="Nombre" .value="${this.name}" @change=${(e) => { this.name = e.target.value }} />
+      <input type="text" name="name" id="name" placeholder="Nombre" .value="${this.name}" />
       <button @click="${this.clearName}">Clear Name</button>
     `;
   }
